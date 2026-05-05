@@ -16,13 +16,13 @@ body {
 h1 {
     background: #007bff;
     color: white;
-    padding: 12px;
+    padding: 14px;
     margin: 0;
-    font-size: 18px;
+    font-size: 20px;
     text-align: center;
 }
 
-/* CENTER BOX */
+/* CENTER */
 .center {
     min-height: 100vh;
     display: flex;
@@ -30,60 +30,60 @@ h1 {
     align-items: center;
     flex-direction: column;
     padding: 15px;
-    box-sizing: border-box;
     text-align: center;
 }
 
-/* LOGIN INPUT */
+/* QUESTION */
+#qbox h3 {
+    font-size: 22px;   /* 🔥 BIG QUESTION TEXT */
+    margin: 20px 10px;
+}
+
+/* OPTIONS (MAIN FIX) */
+.option {
+    display: block;
+    margin: 12px auto;
+    padding: 18px;
+    width: 95%;
+    background: white;
+    border-radius: 10px;
+    font-size: 18px;   /* 🔥 BIG TEXT */
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+/* CLICK EFFECT */
+.option:active {
+    transform: scale(0.97);
+}
+
+/* COLORS */
+.correct { background: #b6f7c1 !important; }
+.wrong { background: #ffb6b6 !important; }
+
+/* INPUT */
 input {
-    padding: 12px;
-    margin: 6px;
-    width: 100%;
-    max-width: 320px;
+    padding: 14px;
+    margin: 8px;
+    width: 95%;
     font-size: 16px;
-    border: 1px solid #ccc;
     border-radius: 6px;
+    border: 1px solid #ccc;
 }
 
 /* BUTTON */
 button {
-    padding: 12px;
-    width: 100%;
-    max-width: 320px;
-    background: #4da6ff;
+    padding: 14px;
+    width: 95%;
+    background: #007bff;
     color: white;
     border: none;
-    border-radius: 6px;
-    font-size: 16px;
-    margin-top: 10px;
+    border-radius: 8px;
+    font-size: 18px;
 }
 
-/* QUESTION BOX */
-#qbox {
-    width: 100%;
-    max-width: 600px;
-    margin: auto;
-    padding: 10px;
-}
-
-/* OPTIONS */
-.option {
-    display: block;
-    margin: 10px auto;
-    padding: 14px;
-    width: 100%;
-    background: white;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 16px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-/* ANSWER COLORS */
-.correct { background: #b6f7c1 !important; }
-.wrong { background: #ffb6b6 !important; }
-
-/* SURPRISE PAGE */
+/* SURPRISE */
 #surprise {
     background: black;
     color: white;
@@ -91,18 +91,17 @@ button {
 }
 
 #surprise h2 {
-    font-size: 18px;
+    font-size: 20px;
     line-height: 1.6;
 }
 
-/* IMAGE PAGE */
+/* IMAGE */
 #imagePage img {
-    width: 95%;
-    max-width: 500px;
+    width: 100%;
     border-radius: 10px;
 }
 
-/* HIDE CLASS */
+/* HIDE */
 .hidden {
     display: none;
 }
