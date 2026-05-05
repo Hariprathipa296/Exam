@@ -3,6 +3,9 @@
 <head>
 <title>Online Exam Portal</title>
 
+<!-- ✅ IMPORTANT FOR MOBILE -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
 body {
     margin: 0;
@@ -17,6 +20,7 @@ h1 {
     color: white;
     padding: 15px;
     margin: 0;
+    font-size: 20px;
 }
 
 /* CENTER */
@@ -26,55 +30,76 @@ h1 {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    padding: 15px;
+    box-sizing: border-box;
 }
 
 /* INPUT */
 input {
-    padding: 10px;
-    margin: 5px;
-    width: 250px;
+    padding: 12px;
+    margin: 6px;
+    width: 90%;
+    max-width: 320px;
+    font-size: 16px;
 }
 
 /* BUTTON */
 button {
-    padding: 10px 15px;
+    padding: 12px 18px;
     background: #4da6ff;
     color: white;
     border: none;
     border-radius: 6px;
     cursor: pointer;
+    font-size: 16px;
 }
 
 /* OPTIONS */
 .option {
     display: block;
     margin: 10px auto;
-    padding: 12px;
-    width: 60%;
+    padding: 14px;
+    width: 90%;
+    max-width: 500px;
     background: white;
     border-radius: 6px;
     cursor: pointer;
+    font-size: 16px;
 }
 
 /* ANSWER COLORS */
 .correct { background: #b6f7c1 !important; }
 .wrong { background: #ffb6b6 !important; }
 
-/* HIDDEN */
-.hidden { display: none; }
-
 /* SURPRISE PAGE */
 #surprise {
     background: black;
     color: white;
     cursor: pointer;
+    user-select: none;
 }
 
 /* IMAGE PAGE */
 #imagePage img {
-    width: 90%;
+    width: 95%;
     max-height: 80vh;
     border-radius: 10px;
+}
+
+/* MOBILE FIX EXTRA */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 18px;
+    }
+
+    .option {
+        width: 95%;
+        font-size: 15px;
+    }
+
+    input {
+        width: 95%;
+    }
 }
 </style>
 
@@ -105,7 +130,7 @@ button {
 <!-- 🚫 MALPRACTICE -->
 <div id="mal" class="hidden center">
     <h2>🚫 Malpractice Detected</h2>
-    <p>You copied answers!!!!!!</p>
+    <p>You copied answers!!!</p>
     <p>Arrear in this subject ❌</p>
 </div>
 
@@ -131,7 +156,7 @@ Thank you for being such an amazing friend and for always being there in your ow
 
 <!-- 🖼️ NEW IMAGE PAGE -->
 <div id="imagePage" class="hidden center">
-    <h2> Many More Happy Returns of the Day My Dear Son 😂💎</h2>
+    <h2>Many More Happy Returns of the Day My Dear Son😂💎</h2>
     <img src="WhatsApp Image 2026-05-05 at 10.08.23 AM.jpeg">
 </div>
 
@@ -204,7 +229,7 @@ function showError(){
 
     setTimeout(()=> errorBox.innerHTML = "<h2>⚠️ Try again...</h2>", 2000);
     setTimeout(()=> errorBox.innerHTML = "<h2>⚠️ Try again...</h2>", 4000);
-    setTimeout(()=> errorBox.innerHTML = "<h2>🚫 Unable to write exam</h2><p>You copied answers 😡</p>", 6000);
+    setTimeout(()=> errorBox.innerHTML = "<h2>🚫 Unable to write exam</h2><p>You copied answers!!!!</p>", 6000);
 
     setTimeout(()=>{
         document.getElementById("error").style.display = "none";
@@ -214,7 +239,7 @@ function showError(){
     }, 10000);
 }
 
-/* 👉 GO TO NEW PAGE */
+/* IMAGE PAGE */
 function goImagePage(){
     document.getElementById("surprise").style.display = "none";
     document.getElementById("imagePage").style.display = "flex";
