@@ -3,7 +3,6 @@
 <head>
 <title>Online Exam Portal</title>
 
-<!-- ✅ IMPORTANT FOR MOBILE -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -11,47 +10,60 @@ body {
     margin: 0;
     font-family: Arial;
     background: #f0f4f8;
-    text-align: center;
 }
 
 /* HEADER */
 h1 {
     background: #007bff;
     color: white;
-    padding: 15px;
+    padding: 12px;
     margin: 0;
-    font-size: 20px;
+    font-size: 18px;
+    text-align: center;
 }
 
-/* CENTER */
+/* CENTER BOX */
 .center {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     padding: 15px;
     box-sizing: border-box;
+    text-align: center;
 }
 
-/* INPUT */
+/* LOGIN INPUT */
 input {
     padding: 12px;
     margin: 6px;
-    width: 90%;
+    width: 100%;
     max-width: 320px;
     font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
 }
 
 /* BUTTON */
 button {
-    padding: 12px 18px;
+    padding: 12px;
+    width: 100%;
+    max-width: 320px;
     background: #4da6ff;
     color: white;
     border: none;
     border-radius: 6px;
-    cursor: pointer;
     font-size: 16px;
+    margin-top: 10px;
+}
+
+/* QUESTION BOX */
+#qbox {
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    padding: 10px;
 }
 
 /* OPTIONS */
@@ -59,12 +71,12 @@ button {
     display: block;
     margin: 10px auto;
     padding: 14px;
-    width: 90%;
-    max-width: 500px;
+    width: 100%;
     background: white;
     border-radius: 6px;
     cursor: pointer;
     font-size: 16px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 /* ANSWER COLORS */
@@ -75,31 +87,24 @@ button {
 #surprise {
     background: black;
     color: white;
-    cursor: pointer;
-    user-select: none;
+    padding: 20px;
+}
+
+#surprise h2 {
+    font-size: 18px;
+    line-height: 1.6;
 }
 
 /* IMAGE PAGE */
 #imagePage img {
     width: 95%;
-    max-height: 80vh;
+    max-width: 500px;
     border-radius: 10px;
 }
 
-/* MOBILE FIX EXTRA */
-@media (max-width: 600px) {
-    h1 {
-        font-size: 18px;
-    }
-
-    .option {
-        width: 95%;
-        font-size: 15px;
-    }
-
-    input {
-        width: 95%;
-    }
+/* HIDE CLASS */
+.hidden {
+    display: none;
 }
 </style>
 
@@ -107,57 +112,53 @@ button {
 
 <body>
 
-<!-- 🟦 LOGIN -->
+<!-- LOGIN -->
 <div id="login" class="center">
     <h2>Student Login</h2>
-    <input placeholder="Name"><br>
-    <input placeholder="Register No"><br>
-    <input type="date"><br>
+    <input placeholder="Name">
+    <input placeholder="Register No">
+    <input type="date">
     <button onclick="startExam()">Start Exam</button>
 </div>
 
-<!-- 🟩 EXAM -->
+<!-- EXAM -->
 <div id="exam" class="hidden">
     <h1>Online Exam Portal</h1>
     <div id="qbox"></div>
 </div>
 
-<!-- ⚠️ ERROR -->
+<!-- ERROR -->
 <div id="error" class="hidden center">
     <h2>⚠️ Error loading result...</h2>
 </div>
 
-<!-- 🚫 MALPRACTICE -->
+<!-- MALPRACTICE -->
 <div id="mal" class="hidden center">
     <h2>🚫 Malpractice Detected</h2>
     <p>You copied answers!!!</p>
     <p>Arrear in this subject ❌</p>
 </div>
 
-<!-- 🎉 SURPRISE PAGE -->
+<!-- SURPRISE -->
 <div id="surprise" class="hidden center" onclick="goImagePage()">
-    <h2>Happiest Birthday Dhilip!🤍💎
-
-Wishing you endless happiness, good health, and great success in every step of your life 🌟💫
-May all your dreams come true and may your journey always be filled with positivity and growth.
-
-Stay blessed, stay strong, and keep smiling always 😊🤍
-
-No matter where life takes us, no matter how many ups and downs come…
-our friendship will always stay strong and unbreakable 🌟🤝
-
-
-Once again, wishing you a birthday full of love, joy, surprises, and beautiful unforgettable moments 🎂🎁✨
+    <h2>
+        Happiest Birthday Dhilip!🤍💎<br><br>
+        Wishing you endless happiness, good health, and great success in every step of your life 🌟💫
+May all your dreams come true and may your journey always be filled with positivity and growth.<br><br>
+        Stay blessed, stay strong, and keep smiling always 😊🤍<br><br>
+        No matter where life takes us, no matter how many ups and downs come…
+our friendship will always stay strong and unbreakable 🌟🤝<br><br>
+        Once again, wishing you a birthday full of love, joy, surprises, and beautiful unforgettable moments 🎂🎁✨
 Thank you for being such an amazing friend and for always being there in your own way 💫
 
-💖 Happy Birthday once again Dhilip! Have a wonderful year ahead! 💖</h2>
-    <p>🥂</p>
+💖 Happy Birthday once again Dhilip! Have a wonderful year ahead! 💖
+    </h2>
 </div>
 
-<!-- 🖼️ NEW IMAGE PAGE -->
+<!-- IMAGE PAGE -->
 <div id="imagePage" class="hidden center">
-    <h2>Many More Happy Returns of the Day My Dear Son😂💎</h2>
-    <img src="WhatsApp Image 2026-05-05 at 10.08.23 AM.jpeg">
+    <h2>Many More Happy Returns of the Day 😂💎</h2>
+    <img src="WhatsApp Image 2026-05-05 at 12.06.47 PM.jpeg">
 </div>
 
 <script>
@@ -192,7 +193,6 @@ function load(){
         d.innerText = opt;
 
         d.onclick = ()=>check(idx);
-
         box.appendChild(d);
     });
 }
@@ -203,14 +203,12 @@ function check(sel){
 
     all.forEach((x, idx)=>{
         x.onclick = null;
-
         if(idx === correct) x.classList.add("correct");
         if(idx === sel && sel !== correct) x.classList.add("wrong");
     });
 
     setTimeout(()=>{
         i++;
-
         if(i < q.length){
             load();
         } else {
@@ -220,26 +218,17 @@ function check(sel){
 }
 
 function showError(){
-
     document.getElementById("exam").style.display = "none";
     document.getElementById("error").style.display = "flex";
     document.getElementById("mal").style.display = "flex";
 
-    let errorBox = document.getElementById("error");
-
-    setTimeout(()=> errorBox.innerHTML = "<h2>⚠️ Try again...</h2>", 2000);
-    setTimeout(()=> errorBox.innerHTML = "<h2>⚠️ Try again...</h2>", 4000);
-    setTimeout(()=> errorBox.innerHTML = "<h2>🚫 Unable to write exam</h2><p>You copied answers!!!!</p>", 6000);
-
     setTimeout(()=>{
         document.getElementById("error").style.display = "none";
         document.getElementById("mal").style.display = "none";
-
         document.getElementById("surprise").style.display = "flex";
-    }, 10000);
+    }, 8000);
 }
 
-/* IMAGE PAGE */
 function goImagePage(){
     document.getElementById("surprise").style.display = "none";
     document.getElementById("imagePage").style.display = "flex";
